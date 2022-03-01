@@ -12,10 +12,6 @@ async function _getSpells() {
     }
 }
 
-async function _drawSpells() {
-
-}
-
 export class SpellsController {
     constructor() {
         _getSpells()
