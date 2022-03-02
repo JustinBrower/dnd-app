@@ -10,7 +10,13 @@ async function _getSpells() {
     } catch (error) {
         console.log("Spell Controller error...", error);
     }
+    try {
+        await spellsService.addStartingSpells()
+    } catch (error) {
+        console.log(error);
+    }
 }
+
 
 export class SpellsController {
     constructor() {
