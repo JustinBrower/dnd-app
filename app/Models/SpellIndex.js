@@ -1,7 +1,7 @@
 
 
 
-export class Spell {
+export class SpellIndex {
     constructor() {
 
     }
