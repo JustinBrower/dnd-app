@@ -20,6 +20,7 @@ async function _getSpells() {
 
 export class SpellsController {
     constructor() {
+        console.log("SpellsController Loaded...");
         _getSpells()
     }
 }
