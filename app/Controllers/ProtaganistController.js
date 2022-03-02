@@ -1,3 +1,4 @@
+import { ProxyState } from "../AppState.js";
 import { protaganistService } from "../Services/ProtaganistService.js";
 
 
@@ -9,12 +10,16 @@ async function _drawProtaganist() {
     } catch (error) {
         console.log(error);
     }
+    console.log("we drew the protag");
 }
 
 
 
 export class ProtaganistController {
     constructor() {
+        console.log("ProtaganistController Loaded...");
+        console.log("On startup protagImage is...", ProxyState.protagObject.imgUrl);
+        _drawProtaganist()
     }
 }
 

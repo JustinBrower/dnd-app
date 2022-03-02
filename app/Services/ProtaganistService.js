@@ -1,10 +1,15 @@
+import { ProxyState } from "../AppState.js";
 
 
+let transformedX = 0
 
 
 
 class ProtaganistService {
+
     async drawProtaganist() {
+        let protagImage = `<img id="protag-elem" src="${ProxyState.protagObject.imgUrl}" alt="Protaganist">`
+        document.getElementById('protag-origin').innerHTML = protagImage
     }
     async moveUp() {
         console.log("just pretend you moved Up");
@@ -15,8 +20,19 @@ class ProtaganistService {
     async moveLeft() {
         console.log("just pretend you moved Left");
     }
+    /// doesnt work
     async moveRight() {
-        console.log("just pretend you moved Right");
+        console.log("Atempt move Right");
+        let protagStyle = ''
+        console.log("protagStyle is...", protagStyle);
+        console.log("x coord is...", transformedX);
+        transformedX = transformedX + 15
+        console.log("x coord is NOW...", transformedX);
+        protagStyle = `style="transform: translateX(${transformedX}px);"`
+        document.getElementById('protag-elem').innerText += protagStyle
+        console.log("protagStyle is NOW...", protagStyle);
+        // let template = `style="transform: translateX(${transformedX}px);"`
+        // document.getElementById('protag-elem').innerText = template
     }
 }
 
