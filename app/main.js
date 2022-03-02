@@ -3,7 +3,7 @@ import { SpellsController } from "./Controllers/SpellsController.js";
 
 class App {
   spellsController = new SpellsController();
-  ProtaganistController = new ProtaganistController();
+  protaganistController = new ProtaganistController();
 }
 
 window["app"] = new App();

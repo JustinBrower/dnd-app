@@ -12,8 +12,25 @@
   <link rel="stylesheet" href="assets/style/style.css">
   <title>dnd-app</title>
 </head>
+<style>
+  body.debug .container,
+  body.debug .container-fluid {
+    outline: 2px double blue;
+    outline-offset: -2px;
+  }
 
-<body>
+  body.debug .row {
+    outline: 2px dashed red;
+    outline-offset: -2px;
+  }
+
+  body.debug [class*="col-"] {
+    outline: 2px dotted forestgreen;
+    outline-offset: -3px;
+  }
+</style>
+
+<body style="background-size: cover;">
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
       <a class="navbar-brand ms-3" href="#">
@@ -24,7 +41,13 @@
     </nav>
   </header>
   <main>
-    <div id="protag-origin"></div>
+    <div class="container-fluid">
+      <div class="row" style="height: 90vh;">
+        <div class="col-12 d-flex align-items-end justify-content-center">
+          <div id="protag-origin"></div>
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="bg-dark text-light">
     <div class="text-center no-select">

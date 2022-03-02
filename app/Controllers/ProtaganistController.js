@@ -10,15 +10,13 @@ async function _drawProtaganist() {
     } catch (error) {
         console.log(error);
     }
-    console.log("we drew the protag");
+    document.body.style.backgroundImage = `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ51K06rKPi2n9hcazYEdpMXk7zLN1gy6dslSAMMxg0K_8hMzUBFpMVJs7YfRspMBzUiw&usqp=CAU)`
 }
-
 
 
 export class ProtaganistController {
     constructor() {
         console.log("ProtaganistController Loaded...");
-        console.log("On startup protagImage is...", ProxyState.protagObject.imgUrl);
         _drawProtaganist()
     }
 }
@@ -35,6 +33,9 @@ document.addEventListener("keyup", function (event) {
     }
     if (event.code === 'KeyD') {
         protaganistService.moveRight()
+    }
+    if (event.code === 'KeyP') {
+        protaganistService.drawSpellsList()
     }
     _drawProtaganist()
 });
