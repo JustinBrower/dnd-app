@@ -1,6 +1,5 @@
 import { ProxyState } from "../AppState.js";
 
-
 let transformedX = 0
 let transformedY = 0
 
