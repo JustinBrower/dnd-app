@@ -10,9 +10,12 @@ async function _getSpells() {
     } catch (error) {
         console.log("SpellsController Error...", error);
     }
-    return
+    // HAVE TO CALL SPELL FUNCTIONS HERE INSTEAD OF CONTROLLER BECAUSE _GETSPELLS IS TOO SLOW, SPELLS COME BACK UNDEFINED
+    _addStartingSpells()
+    _addVillainSpells()
 }
 
+//  ADDS THE STARTING HERO SPELLS
 async function _addStartingSpells() {
     try {
         await spellsService.addStartingSpells()
@@ -21,6 +24,7 @@ async function _addStartingSpells() {
     }
 }
 
+// ADDS EVERY VILLAIN'S SPELL TO THEIR SPELLS ARRAY ON LOAD
 async function _addVillainSpells() {
     try {
         await spellsService.addVillainSpells()
@@ -34,7 +38,5 @@ export class SpellsController {
     constructor() {
         console.log("SpellsController Loaded...");
         _getSpells()
-        _addStartingSpells()
-        _addVillainSpells()
     }
 }
