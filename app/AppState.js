@@ -4,32 +4,36 @@ import { generateId } from "./Utils/generateId.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 
+
 const testProtag = new Protaganist({
   id: generateId(),
+  name: "Mr. Hero",
   health: 20,
   isDead: false,
   imgUrl: ""
 })
 
-const testVillain = new Villain({
-  id: generateId(),
-  health: 20,
-  isDead: false,
-  spells: [],
-  imgUrl: ""
-})
+// const testVillain = new Villain({
+//   id: generateId(),
+//   name: "Mr. Bad Guy",
+//   health: 20,
+//   isDead: false,
+//   spells: testVillainSpells,
+//   imgUrl: ""
+// })
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/SpellIndex').Spell[]} */
   apiSpells = []
   mySpells = []
+  v0Spells = []
 
   /** @type {import('./Models/Protaganist').Protaganist{}} */
   protagObject = testProtag
 
   /** @type {import('./Models/Villain').Villain{}} */
-  villains = [testVillain]
-  activeVillain = testVillain
+  // villains = [testVillain]
+  // activeVillain = testVillain
 
 }
 
