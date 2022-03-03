@@ -1,7 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { protaganistService } from "../Services/ProtaganistService.js";
 
-
+let inCombat = false
 
 
 async function _drawProtaganist() {
@@ -22,20 +22,22 @@ export class ProtaganistController {
 }
 
 document.addEventListener("keyup", function (event) {
-    if (event.code === 'KeyW') {
-        protaganistService.moveUp()
-    }
-    if (event.code === 'KeyS') {
-        protaganistService.moveDown()
-    }
-    if (event.code === 'KeyA') {
-        protaganistService.moveLeft()
-    }
-    if (event.code === 'KeyD') {
-        protaganistService.moveRight()
-    }
-    if (event.code === 'KeyP') {
-        protaganistService.drawSpellsList()
+    if (inCombat == false) {
+        if (event.code === 'KeyW') {
+            protaganistService.moveUp()
+        }
+        if (event.code === 'KeyS') {
+            protaganistService.moveDown()
+        }
+        if (event.code === 'KeyA') {
+            protaganistService.moveLeft()
+        }
+        if (event.code === 'KeyD') {
+            protaganistService.moveRight()
+        }
+        if (event.code === 'KeyP') {
+            protaganistService.drawSpellsList()
+        }
     }
     _drawProtaganist()
 });

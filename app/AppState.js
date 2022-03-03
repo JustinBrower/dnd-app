@@ -11,15 +11,25 @@ const testProtag = new Protaganist({
   imgUrl: ""
 })
 
+const testVillain = new Villain({
+  id: generateId(),
+  health: 20,
+  isDead: false,
+  spells: [],
+  imgUrl: ""
+})
+
 class AppState extends EventEmitter {
   /** @type {import('./Models/SpellIndex').Spell[]} */
   apiSpells = []
   mySpells = []
 
   /** @type {import('./Models/Protaganist').Protaganist{}} */
-
-
   protagObject = testProtag
+
+  /** @type {import('./Models/Villain').Villain{}} */
+  villains = [testVillain]
+  activeVillain = testVillain
 
 }
 

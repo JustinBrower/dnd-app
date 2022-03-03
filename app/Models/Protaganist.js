@@ -9,6 +9,5 @@ export class Protaganist {
         this.health = data.health
         this.isDead = data.isDead
         this.imgUrl = "https://gamepedia.cursecdn.com/wizardoflegend_gamepedia_en/thumb/6/6b/Master_Sura.png/192px-Master_Sura.png?version=cb9ebaa6a7f1f19fbdbc15b5049d0f2e"
-        // "https://static.wikia.nocookie.net/wizardoflegend_gamepedia_en/images/f/fa/Tempo.png/revision/latest?cb=20210801123714
     }
 }
