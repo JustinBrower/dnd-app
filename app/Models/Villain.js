@@ -9,5 +9,6 @@ export class Villain {
         this.isDead = data.isDead
         this.spells = data.spells
         this.imgUrl = data.imgUrl
+        this.class = data.class
     }
 }
