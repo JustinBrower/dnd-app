@@ -10,7 +10,7 @@ const testProtag = new Protaganist({
   name: "Mr. Hero",
   health: 20,
   isDead: false,
-  imgUrl: ""
+  imgUrl: "https://gamepedia.cursecdn.com/wizardoflegend_gamepedia_en/thumb/6/6b/Master_Sura.png/192px-Master_Sura.png?version=cb9ebaa6a7f1f19fbdbc15b5049d0f2e"
 })
 
 // const testVillain = new Villain({
@@ -29,7 +29,7 @@ class AppState extends EventEmitter {
   v0Spells = []
 
   /** @type {import('./Models/Protaganist').Protaganist{}} */
-  protagObject = testProtag
+  hero = testProtag
 
   /** @type {import('./Models/Villain').Villain{}} */
   // villains = [testVillain]

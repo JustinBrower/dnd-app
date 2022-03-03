@@ -9,7 +9,7 @@ let transformedY = 0
 class ProtaganistService {
 
     async drawProtaganist() {
-        let protagImage = `<img id="protag-elem" style="transform: translate(${transformedX}px, ${transformedY}px)" src="${ProxyState.protagObject.imgUrl}" alt="Protaganist">`
+        let protagImage = `<img id="protag-elem" style="transform: translate(${transformedX}px, ${transformedY}px)" src="${ProxyState.hero.imgUrl}" alt="Protaganist">`
         document.getElementById('protag-origin').innerHTML = protagImage
     }
     async moveUp() {
