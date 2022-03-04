@@ -7,15 +7,17 @@
 class DiceService {
 
     async roll20() {
-        let rawRoll = (Math.random() * 21)
+        let rawRoll = (Math.random() * 20)
         let trueRoll = Math.round(rawRoll)
         if (trueRoll == 0) {
-            trueRoll = 1
+            this.roll20()
+            console.log("re-rolled");
         }
         if (trueRoll == 21) {
-            trueRoll = 20
+            this.roll20()
+            console.log("re-rolled")
         }
-        console.log("Roll is...", trueRoll);
+        console.log("Roll is...", trueRoll + 1);
         trueRoll = roll
         return roll
     }
