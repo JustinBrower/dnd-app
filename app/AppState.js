@@ -1,4 +1,5 @@
 import { Protaganist } from "./Models/Protaganist.js"
+import { Villain } from "./Models/Villain.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { generateId } from "./Utils/generateId.js"
 import { isValidProp } from "./Utils/isValidProp.js"
@@ -14,14 +15,15 @@ const testProtag = new Protaganist({
   imgUrl: "https://gamepedia.cursecdn.com/wizardoflegend_gamepedia_en/thumb/6/6b/Master_Sura.png/192px-Master_Sura.png?version=cb9ebaa6a7f1f19fbdbc15b5049d0f2e"
 })
 
-// const testVillain = new Villain({
-//   id: generateId(),
-//   name: "Mr. Bad Guy",
-//   health: 20,
-//   isDead: false,
-//   spells: testVillainSpells,
-//   imgUrl: ""
-// })
+const villain0 = new Villain({
+  id: generateId(),
+  name: "Villain 0",
+  health: 20,
+  isDead: false,
+  class: "Wixard",
+  spells: "",
+  imgUrl: ""
+})
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/SpellIndex').Spell[]} */
@@ -33,8 +35,8 @@ class AppState extends EventEmitter {
   hero = testProtag
 
   /** @type {import('./Models/Villain').Villain{}} */
-  // villains = [testVillain]
-  // activeVillain = testVillain
+  villains = [villain0]
+  activeVillain = villain0
 
 }
 
