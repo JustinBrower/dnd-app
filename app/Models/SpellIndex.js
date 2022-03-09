@@ -2,12 +2,12 @@
 
 
 export class Spell {
-    constructor() {
+    constructor(data) {
         {
             this.school = data.school
-            this.index = data.index
-            this.name = data.name
-            this.url = data.url
+            this.schoolIndex = data.school.index
+            this.schoolName = data.school.name
+            this.schoolUrl = data.school.url
         }
         {
             this.higher_level = data.higher_level
