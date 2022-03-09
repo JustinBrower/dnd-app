@@ -6,6 +6,15 @@ export class DiceController {
         console.log("DiceController Loaded...");
     }
 
+
+    async roll(dice) {
+        try {
+            await diceService.roll(dice)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async roll20(roll) {
         try {
             await diceService.roll20(roll)
