@@ -24,6 +24,7 @@ export class Spell {
 
         this.damage_type = data.damage.damage_type
 
+
         this.damage_typeIndex = data.damage.damage_type.damage_typeIndex
         this.damage_typeName = data.damage.damage_type.name
 

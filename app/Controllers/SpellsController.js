@@ -17,19 +17,10 @@ async function _addStartingSpells() {
     }
 }
 
-async function _addVillainSpell() {
-    try {
-        await spellsService.addVillainSpell()
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 export class SpellsController {
     constructor() {
         console.log("SpellsController Loaded...");
         ProxyState.on("apiSpells", _addStartingSpells)
-        ProxyState.on("apiSpells", _addVillainSpell)
         _getSpellsIndex()
     }
 

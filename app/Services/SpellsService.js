@@ -28,7 +28,6 @@ class SpellsService {
 
     async addVillainSpell(spell) {
         let spellIndex = ProxyState.apiSpells.find(s => s.name == spell)
-        debugger
         console.log("url is...", spellIndex.url);
         let foundSpell = await dndApi.get(spellIndex.url)
         console.log("Found Spell is...", foundSpell);

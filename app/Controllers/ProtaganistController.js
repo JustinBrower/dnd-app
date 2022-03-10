@@ -21,7 +21,7 @@ export class ProtaganistController {
     }
 }
 
-document.addEventListener("keyup", function (event) {
+document.addEventListener("keydown", function (event) {
     if (inCombat == false) {
         if (event.code === 'KeyW') {
             protaganistService.moveUp()
