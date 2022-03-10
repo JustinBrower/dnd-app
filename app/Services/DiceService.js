@@ -1,9 +1,5 @@
 
 
-
-
-
-
 class DiceService {
 
     async roll(data) {
@@ -33,7 +29,5 @@ class DiceService {
         return TrueRoll
     }
 }
-///////
-
 
 export const diceService = new DiceService()

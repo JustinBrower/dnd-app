@@ -1,21 +1,14 @@
 import { ProxyState } from "../AppState.js";
 import { spellsService } from "../Services/SpellsService.js";
 
-
-
-
-async function _getSpells() {
+async function _getSpellsIndex() {
     try {
-        await spellsService.getSpells()
+        await spellsService.getSpellsIndex()
     } catch (error) {
-        console.log("SpellsController Error...", error);
+        console.log(error);
     }
-    // HAVE TO CALL SPELL FUNCTIONS HERE INSTEAD OF CONTROLLER BECAUSE _GETSPELLS IS TOO SLOW, SPELLS COME BACK UNDEFINED
-    _addStartingSpells()
-    _addVillainSpells()
 }
 
-//  ADDS THE STARTING HERO SPELLS
 async function _addStartingSpells() {
     try {
         await spellsService.addStartingSpells()
@@ -24,19 +17,27 @@ async function _addStartingSpells() {
     }
 }
 
-// ADDS EVERY VILLAIN'S SPELL TO THEIR SPELLS ARRAY ON LOAD
-async function _addVillainSpells() {
+async function _addVillainSpell() {
     try {
-        await spellsService.addVillainSpells()
+        await spellsService.addVillainSpell()
     } catch (error) {
         console.log(error);
     }
 }
 
-
 export class SpellsController {
     constructor() {
         console.log("SpellsController Loaded...");
-        _getSpells()
+        ProxyState.on("apiSpells", _addStartingSpells)
+        ProxyState.on("apiSpells", _addVillainSpell)
+        _getSpellsIndex()
+    }
+
+    async addHeroSpell(spell) {
+        try {
+            await spellsService.addHeroSpell(spell)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

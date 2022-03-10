@@ -26,7 +26,7 @@ const villain0 = new Villain({
 })
 
 class AppState extends EventEmitter {
-  /** @type {import('./Models/SpellIndex').Spell[]} */
+  /** @type {import('./Models/Spell').Spell[]} */
   apiSpells = []
   mySpells = []
   v0Spells = []

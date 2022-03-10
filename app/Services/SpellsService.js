@@ -1,31 +1,38 @@
 import { ProxyState } from "../AppState.js";
+import { Spell } from "../Models/Spell.js";
 import { dndApi } from "./AxiosService.js"
 
 
 class SpellsService {
-    async getSpells() {
-        const res = await dndApi.get('spells')
-        console.log("API Spells", res.data);
+    async getSpellsIndex() {
+        const res = await dndApi.get('/api/spells')
+        console.log("API Spells Index", res.data);
         ProxyState.apiSpells = res.data.results
     }
+
     async addStartingSpells() {
-        let s0 = ProxyState.apiSpells.find(s => s.name == "Fire Bolt")
-        let s1 = ProxyState.apiSpells.find(s => s.name == "Ray of Frost")
-        ProxyState.mySpells.push(s0, s1)
+        this.addHeroSpell("Fire Bolt")
+        this.addHeroSpell("Ray of Frost")
+        this.addVillainSpell('Fire Bolt')
     }
+
     async addHeroSpell(spell) {
-        ProxyState.apiSpells.find(s => s.name == spell)
-        ProxyState.mySpells.push(spell)
-    }
-    async addVillainSpells() {
-        let s0 = ProxyState.apiSpells.find(s => s.name == "Fire Bolt")
-        ProxyState.v0Spells.push(s0)
-        console.log("Villain's Spells are...", ProxyState.v0Spells);
+        let spellIndex = ProxyState.apiSpells.find(s => s.name == spell)
+        let foundSpell = await dndApi.get(spellIndex.url)
+        let trueSpell = new Spell(foundSpell)
+        console.log("after mapping...", trueSpell);
+        ProxyState.mySpells.push(trueSpell)
     }
 
-
-
-
+    async addVillainSpell(spell) {
+        let spellIndex = ProxyState.apiSpells.find(s => s.name == spell)
+        console.log("url is...", spellIndex.url);
+        let foundSpell = await dndApi.get(spellIndex.url)
+        console.log("Found Spell is...", foundSpell);
+        let trueSpell = new Spell(foundSpell)
+        console.log("after mapping...", trueSpell);
+        ProxyState.v0Spells.push(trueSpell)
+    }
 }
 
 
